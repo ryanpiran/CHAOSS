@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script data-require="jquery@*" data-semver="3.1.1" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://drjferraris.github.io/mcad.library/dist/mcad.library.v1-0.min-d.js"></script>
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <div id="surface" class="wrapper">
+    <div id="content">
+      
+      <div id="config">
+        <!-- Master controls -->
+        <div id="master">
+          <div id="masterControls">
+            <!-- Master volume -->
+            <label for="masterVolume">Master Volume</label>
+            <input type="range" id="masterVolume">
+            <!-- Tempo -->
+            <label for="tempo">Tempo</label>
+            <input type="range" id="tempo" min="40" max="200">
+            <!-- Swing -->
+            <label for="swing">Swing</label>
+            <input type="range" id="swing" min="0" max="100">
+            <!-- Kit selection -->
+            <select class="btn">
+              <option selected>Kit 1</option>
+              <option>Kit 2</option>
+              <option>Kit 3</option>
+            </select>
+          </div>
+        </div>
+        <!-- Patch settings -->
+        <div id="patch">
+        <!-- Patch display -->
+        <div id="patchScreen">
+          Patch
+        </div>
+         <!-- Preferences etc. -->
+        <div id="prefs">
+          <button class="btn">Panning</button>
+          <button class="btn">Filters</button>
+          <button class="btn">Preferences</button>
+          <button class="btn">Plus</button>
+          <button class="btn">Help</button>
+        </div>
+      </div>
+        <!-- Kit selection -->
+        <div id="kit">
+        <div id="logo">CHAOSS</div>
+        <!-- Kit options -->
+        <table>
+          <tbody>
+            <tr>
+              <td class="transportButton" id="play"><i class="fa fa-play"></i></td>
+              <td class="transportButton" id="pause"><i class="fa fa-pause"></i></td>
+              <td class="transportButton" id="stop"><i class="fa fa-stop"></i></td>
+              <td class="transportButton" id="clear">clear</td>
+              <td class="transportButton">&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="btn">1</td>
+              <td class="btn">2</td>
+              <td class="btn">3</td>
+              <td class="btn">4</td>
+              <td class="btn">&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+    
+<!-- Sequencing area -->
+    <div id="sequencer">
+      <!-- Labels for drum tracks -->
+      <div id="labels">
+        <div id="labeldivider1"></div>
+        <div id="labeldivider2">
+          <table id="track">
+            <tbody>
+            <tr>
+            <td align='right'>Kick</td>
+            </tr>
+            <tr>
+            <td align='right'>Snare</td>
+            </tr>
+            <tr>
+            <td align='right'>Crash</td>
+            </tr>
+            <tr>
+            <td align='right'>Hi-Tom</td>
+            </tr>
+            <tr>
+            <td align='right'>Medium Tom</td>
+            </tr>
+            <tr>
+            <td align='right'>Low Tom</td>
+            </tr>
+            <tr>
+            <td align='right'>Open Hi-Hat</td>
+            </tr>
+            <tr>
+            <td align='right'>Closed Hi-Hat</td>
+            </tr>
+
+
+            </tbody>
+          </table>
+        </div>
+        <div id="labeldivider3"></div>
+      </div>
+      <!-- Steps for drum tracks -->
+      <div id="steps">
+        <!-- Top legend -->
+        <div id="beatLegend" class="legend">
+          <ul>
+            <li>1</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>2</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>3</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>4</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+          </ul>
+        </div>
+        <!-- Pattern steps -->
+        <div id="stepLayout">
+          <table>
+            <!-- Kick -->
+              <tr id= "kick">
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+            <!-- Snare -->
+              <tr id="snare">
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <!-- Crash -->
+              <tr id="crash">
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <!-- Hi tom -->
+              <tr id="Hitom">
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <!-- Medium tom -->
+              <tr id="Mediumtom">
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <!-- Low tom -->
+              <tr id="Lowtom">
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <!-- Open hihat -->
+              <tr id="Openhihat">
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <!-- Closed hihat -->
+              <tr id="Closedhihat">
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              
+              
+
+          </table>
+        </div>
+        <!-- Bottom legend -->
+        <div id="stepLegend" class="legend">
+          <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>10</li>
+            <li>11</li>
+            <li>12</li>
+            <li>13</li>
+            <li>14</li>
+            <li>15</li>
+            <li>16</li>
+          </ul>
+        </div>
+      </div>
+    
+      
+        
+        <!-- Controls for drum tracks -->
+      <div id="controls">
+        <div id="controlsdivider1"></div>
+        <!-- Volume controls for drum tracks -->
+        <div id="VolumeControl" class="controls">
+        <table id="Volume">
+          <tbody>
+          <tr>
+          <td><input type="range" id="kickVolume"></td>
+          </tr>
+          <tr>
+          <td><input type="range" id="snareVolume"></td>
+          </tr>
+          <tr>
+          <td> <input type="range" id="crashVolume"> </td>
+          </tr>
+          <tr>
+          <td> <input type="range" id="hiTomVolume"></td>
+          </tr>
+          <tr>
+          <td><input type="range" id="mediumTomVolume"></td>
+          </tr>
+          <tr>
+          <td><input type="range" id="lowTomVolume"></td>
+          </tr>
+          <tr>
+          <td><input type="range" id="openHiHatVolume"></td>
+          </tr>
+          <tr>
+          <td><input type="range" id="closedHihatVolume"></td>
+          </tr>
+
+
+          </tbody>
+        </table>
+        </div>
+        
+        
+        <!-- Pitch controls for drum tracks -->
+        <div id="PitchControl" class="controls">
+        <table id="Pitch">
+          <tbody>
+          <tr>
+          <td><input type="range" id="kickPitch"></td>
+          </tr>
+          <tr>
+          <td><input type="range" id="snarePitch"></td>
+          </tr>
+          <tr>
+          <td> <input type="range" id="crashPitch"></td>
+          </tr>
+          <tr>
+          <td> <input type="range" id="hiTomPitch"></td>
+          </tr>
+          <tr>
+          <td><input type="range" id="mediumTomPitch"></td>
+          </tr>
+          <tr>
+          <td><input type="range" id="lowTomPitch"></td>
+          </tr>
+          <tr>
+          <td><input type="range" id="openHiHatPitch"></td>
+          </tr>
+          <tr>
+          <td><input type="range" id="closedHihatPitch"></td>
+          </tr>
+
+
+          </tbody>
+        </table>
+        </div>
+        <div id="controlsdivider2" align='middle'>Volume</div>
+        <div id="controlsdivider3" align='middle'>Pitch</div>
+      </div>
+    </div>
+      
+      <div id="globalmenu">
+         <div id="selectXYpad">
+          <button type="button" id= "XYbutton">XY PAD</button>
+         </div>  
+        
+         
+            <div id="selectdrum">
+            <button type="button" id= "drumbutton">DRUM MACHINE</button>
+            </div>
+              <div id="selecteffects">
+              <button type="button" id= "effectsbutton">EFFECTS</button>
+              </div> 
+      </div>
+    </div> 
+  </div>
+  
+  
+</body>
+
+</html>
