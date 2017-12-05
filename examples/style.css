@@ -1,0 +1,499 @@
+/* General page stylings */
+body {
+  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 100%;
+  color: #aaaaaa;
+}
+
+/* Button style class (used by buttons and selection boxes) */
+.btn {
+  background: #242424;
+  background-image: linear-gradient(to bottom, #242424, #6b6b6b);
+  border-radius: 7px;
+  border: solid #000000 1px;
+  text-decoration: none;
+  color: #aaaaaa;
+}
+
+.transportButton {
+  background: #242424;
+  background-image: linear-gradient(to bottom, #242424, #6b6b6b);
+  border-radius: 7px;
+  border: solid #000000 1px;
+  text-decoration: none;
+  color: #aaaaaa;
+}
+
+.transportButtonDisabled {
+  color: #121212;
+}
+
+/* Slider styling */
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 4.5px 0;
+}
+
+/* Currently in use slider styling */
+input[type=range]:focus {
+  outline: none;
+}
+
+/* Slider track */
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 7px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #D6DC19;
+  border-radius: 25px;
+  border: 0px solid #010101;
+}
+
+/* Slider thumb */
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0.8px 0.8px 1.9px rgba(0, 0, 62, 0.67), 0px 0px 0.8px rgba(0, 0, 88, 0.67);
+  border: 1.9px solid rgba(0, 30, 0, 0.57);
+  height: 16px;
+  width: 16px;
+  border-radius: 36px;
+  background: #3071a9;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -4.5px;
+}
+
+/* Currently in use slider track */
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #D6DC19;
+}
+
+/* Slider background */
+input[type=range] {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+#surface {
+  width: 100%;
+  padding-bottom: 56.22%;  /* aspect ratio == height/width == 750/1334 as percentage */
+  background-color: rgb(63, 63, 63);;
+}
+
+/* Container for our app */
+#content {
+	position: absolute;
+	top: 0;  bottom: 0;  left: 0;  right: 0;
+	padding: 0 
+}
+
+/* Wrapper class that the background and all top-level divs inside the container must use */
+.wrapper {
+	position: relative;  /* keeps proportions when resizing */
+}
+
+/* -------------- SURFACE BEGIN -------------- */
+/*Top Half of GUI*/
+#config{ 
+   /* background-color: red;*/
+    width: 100%;
+    height: 33.33%;
+}
+
+  /* -------------- CONFIG BEGIN -------------- */
+  
+  /* -------------- MASTER BEGIN -------------- */
+      /* Master controls */
+    #master {
+      /*background-color: #00ff00;*/
+      width: 33.333%;
+      height: 100%;
+      float: left;
+    }
+    
+    /* -------------- MASTER CONTROLS BEGIN -------------- */
+      
+        /* Range input for master controls */
+        #masterControls input[type=range] {
+          height: 2.66%;
+        }
+        
+        
+        /* Selection boxes in master controls section */
+        #masterControls select {
+          width: 49%;
+          height: 4%;
+          margin-top: 0.66%;
+          margin-bottom: 0.66%;
+        }
+        
+        
+        /* Buttons in master controls section */
+        #masterControls button {
+          width: 2.66%;
+          height: 2.66%;
+        }
+        
+        
+        /* Button labels in master controls section */
+        #masterControls label {
+          font-size: 1em;
+          margin-right: 0.133%;
+        }
+        
+      /* -------------- MASTER CONTROLS END -------------- */
+    
+  /* -------------- MASTER END -------------- */
+  
+  /* -------------- PATCH BEGIN -------------- */
+    
+    /* Patch selection etc. */
+    #patch {
+      /*background-color: #00fcff; */
+      width: 33.333%;
+      height: 100%;
+      float: left;
+    }
+    
+    /* Prefs etc. container */
+      #prefs {
+        padding-top: 0.66%;
+        text-align: center;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+  
+  /* Buttons in patch section */
+      #prefs button {
+        height: 3.33%;
+      }
+      
+  /* Button hover (mouse over) in patch section */
+      #prefs button:hover {
+        color: rgb(52, 202, 197);
+      }
+  
+  /* Patch screen display */
+      #patchScreen {
+        width: 90%;
+        height: 65%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1.33%;
+        background-color: #202020;
+        border-radius: 1.33%;
+        border: 2px solid #555;
+        color: rgb(52, 202, 197);
+        padding-left: 1.33%;
+      }
+  /* -------------- PATCH END -------------- */
+  
+  /* -------------- KIT BEGIN -------------- */
+    
+    /* Kit selection etc. */
+    #kit {
+      /*background-color: #ff00de;*/
+      width: 33.333%;
+      height: 100%;
+      float: left;
+    }
+    
+    /* Table for kit selection buttons */
+      #kit table {
+        display: table-cell;
+        vertical-align: top;
+        /*padding-left: 25px;*/
+        padding-left: 20.63%;
+       /* padding-top: 25px;*/
+        padding-top: 5.63%;
+      }
+    
+    /* Table cells for kit selection buttons */
+      #kit td {
+        width: 3em;
+        height: 2em;
+        text-align: center;
+        vertical-align: middle;
+      }
+      
+    /* Logo in kit section */
+      #logo {
+        /*font-size: 50px;*/
+        font-size: 2em;
+        color: rgb(52, 202, 197);
+        text-align: center;
+      }
+  /* -------------- KIT END -------------- */
+  
+  /* -------------- CONFIG END -------------- */
+
+/* -------------- SEQUENCER BEGIN -------------- */
+#sequencer{
+   /* background-color: yellow;*/
+    width: 100%;
+    height: 59.16%;
+}
+    
+    /* -------------- LABELS BEGIN -------------- */
+    
+        /* Track labels section */
+    #labels {
+      width: 25.49%;
+      height: 100%;
+      /*background-color: #006cff;*/
+      float: left;
+    }
+    
+    #labeldivider1{
+      height: 10%;
+      width: 100%;
+      /*background-color: red;*/
+      float: left;
+    }
+    
+    #labeldivider2{
+      height: 80%;
+      width: 100%;
+      float: left;
+    }
+    
+    #labeldivider2 table{
+    width: 100%;
+    height: 100%;
+    }
+    
+    #labeldivider2 tr{
+    border: 2px solid;
+    border-radius: 10%;
+    padding: 0;
+    }
+
+    
+    #labeldivider3{
+      height: 10%;
+      width: 100%;
+      /*background-color: yellow;*/
+      float: left;
+    }
+    
+
+/* -------------- LABELS END -------------- */
+
+/* -------------- STEPS BEGIN -------------- */
+
+    /* Pattern steps section */
+    #steps {
+      width: 49.02%;
+      height: 100%;
+      /*background-color: #ff4200;*/
+      float: left;
+      
+    }
+       #stepLayout {
+        width: 100%;
+        height: 80%;
+       /* background-color: #ff00c6;*/
+        float: left;
+        display: table;
+       }
+      
+        #stepLayout table {
+          
+          width: 100%;
+          height: 100%;
+        }
+        
+        #stepLayout td {
+          color: rgb(25, 25, 25);
+          border: 2px solid;
+          border-radius: 10%;
+          padding: 0;
+          background-color: rgb(32, 32, 32);
+        }
+        
+        .ledAnim{
+          background-color: #B2B2B2!important;
+          
+          /* #D6DC19 use this color for selecting pattern */
+        }
+        
+        .ledOn{
+          background-color: #D6DC19!important;
+        }
+        
+        
+  /* -------------- STEP LAYOUT END -------------- */
+  
+  /* -------------- LEGEND BEGIN -------------- */
+      
+        #beatLegend {
+          width: 100%;
+          height: 10%;
+         /* background-color: #ccff00;*/
+          float: left;
+        }
+        
+        #stepLegend {
+          width: 100%;
+          height: 10%;
+          /*background-color: #00fcff;*/
+          float: left;
+          font-size: 10px;
+        }
+        
+      .legend ul {
+      margin-top: 0;
+      text-align: left;
+      list-style: none;
+      padding: 0;
+      color: rgb(52, 202, 197);
+    }
+    
+    .legend li {
+      float: left;
+      width: 6%;
+      margin-left: 0.22%;
+    }
+        
+      /* -------------- LEGEND END -------------- */
+/* -------------- STEPS END -------------- */
+
+/* -------------- CONTROLS BEGIN -------------- */
+
+  /* Track controls section */
+    #controls {
+      width: 25.49%;
+      height: 100%;
+      /*background-color: #5400ff;*/
+      float: left;
+    }
+    
+    #VolumeControl{
+      width: 50%;
+      height: 80%;
+    }
+    
+    #PitchControl{
+      width: 50%;
+      height: 80%;
+    }
+    
+   #VolumeControl table{
+     width:100%;
+     height:100%;
+   }
+   
+   #controls tr{
+    border: 2px solid;
+    border-radius: 10%;
+    padding: 0;
+    }
+   
+  #PitchControl table{
+     width:100%;
+     height:100%;
+   }
+   
+    #controlsdivider1{
+    height: 10%;
+    width: 100%;
+    /*background-color: red;*/
+    float: left;
+    }
+    
+    #controlsdivider2{
+    height: 10%;
+    width: 50%;
+    /*background-color: yellow;*/
+    float: left;
+    }
+    
+    #controlsdivider3{
+    height: 10%;
+    width: 50%;
+    /*background-color: yellow;*/
+    float: left;
+    }
+   
+   
+  /* Track controls */
+      .controls {
+        width: 50%;
+        height: 100%;
+        /*background-color: #00ff00;*/
+        float: left;
+        text-align: center;
+      }
+      
+      /* Track controls list */
+      .controls ul {
+        padding-top: 15px;
+        width: 80px;
+        padding-left: 0px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 0px;
+      }
+
+/* -------------- CONTROLS END -------------- */
+
+/* -------------- SEQUENCER END -------------- */
+
+/* -------------- GLOBAL MENU BEGIN -------------- */
+  /* globalmenu section (Bottom half of GUI) */
+  #globalmenu {
+    background-color: red;
+    width: 100%;
+    height: 7.5%;
+    position: absolute;
+    bottom: 0;
+  }
+  
+  
+  #selectXYpad {
+    background-color: #80ff00;
+    width: 33.333%;
+    height: 100%;
+    float: left;
+  }
+  
+    #selectdrum {
+    background-color: #ffff00;
+    width: 33.333%;
+    height: 100%;
+    float: left;
+  }
+  
+  #selecteffects {
+    background-color: #ff8000;
+    width: 33.333%;
+    height: 100%;
+    float: left;
+  }
+  
+  #XYbutton{
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+  }
+  
+  #drumbutton{
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+  }
+  
+  #effectsbutton{
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+  }
+/* -------------- GLOBAL MENU END -------------- */
+
+/* -------------- SURFACE END -------------- */
+  
+
+
+
+
